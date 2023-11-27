@@ -1,0 +1,6 @@
+#byte-compiled
+__pycache__/
+*py[cod]
+*$py.class
+
+*.sqlite3
