@@ -1,18 +1,34 @@
-
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import get_user_model, authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from .forms import ContactForm, RegisterForm, LoginForm
 
-from .forms import ContactForm, LoginForm, RegisterForm
 
 def home_page(request):
     context = {
-                    "title": "Home Page",
-                    "content": "Bem vindo a Home Page",
-              }
-    if request.user.is_authenticated:
-        context["premium_content"] = "Você é um usuário Premium"
+        "title": "Página principal",
+        "content": "Bem-vindo à página principal"
+    }
     return render(request, "home_page.html", context)
+
+def about_page(request):
+    context = {
+        "title": "Página sobre",
+        "content": "Bem-vindo à página sobre"
+    }
+    return render(request, "about/view.html", context)  # Corrigido o caminho do template
+
+def contact_page(request):
+    contact_form = ContactForm(request.POST or None)
+    context = {
+        "title": "Página de contato",
+        "content": "Bem-vindo à página de contato",
+        "form": contact_form
+    }
+    if contact_form.is_valid():
+        print(contact_form.cleaned_data)
+    return render(request, "contact/view.html", context)
+
 
 def about_page(request):
     context = {
