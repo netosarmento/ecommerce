@@ -16,23 +16,42 @@
     
 	<div class='row'>
 		<div class='col'>
-		<img src="{% static 'img/eCommerce.jpeg' %}" class='img-fluid' />
+		<img src="{% static 'img/frompara.png' %}" class='img-fluid' />
 		<p>{{ content }}</p>
 		</div>
 	</div>
 
+<div class="ui hidden divider">
+<div class="ui conteiner">
+	<div class="ui grid"
+	<div class="four wide column">
+    <div class="ui vertical menu">
+		<a class="active teal item">
+			Inbox
+	        <div class="ui teal left pointing label">1</div>
+		</a>
+		<a class="item">
+			spam
+			<div class="ui label">51</div>
+		</a>
+		<a class="item">
+			Updates
+		    <div class="ui label">
+		</a>
+	</div>
+</div>
     <div class="ui three column stackable grid">
 		{% for anuncio in anuncios %}
 		<div class="column">
 			<div class="ui fluid card">
 				<div class="image">
-					<img src="{% static 'anuncios/img/image.png' %}">
-				</div>
+					<img src="{{ anuncio.imagem.url }}" alt="Imagem do Anúncio">
+				</div>			
 				<div class="content">
 					<a href="{% url 'anuncio' anuncio.id %}" class="header">{{ anuncio }}</a>
 				</div>
 				<div class="extra content">
-					R$ {{ anuncio.preco }}
+					 {{ anuncio.descricao }}
 				</div>
 			</div>
 		</div>
