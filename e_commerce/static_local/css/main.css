@@ -58,10 +58,26 @@
 /* Estilos adicionais para o conteúdo do anúncio */
 .ui.fluid.card .content, .ui.fluid.card .extra.content {
   padding: 15px; /* Espaçamento interno */
+  background-color: #f9f9f9; /* Cor de fundo para contraste */
+  border-radius: 15px; /* Bordas mais suaves */
+  margin-top: 10px; /* Adicionar margem superior */
+  text-align: center; /* Centralizar o texto */
+  font-family: Arial, sans-serif; /* Escolher uma fonte profissional */
+  color: #333; /* Cor do texto */
+  font-size: 18px; /* Tamanho do texto */
+  line-height: 1.5; /* Altura da linha para melhor legibilidade */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar o conteúdo */
 }
+
 
 .centered-text {
   text-align: center;
   margin-top: 20px; /* Ajustar a margem conforme necessário */
+  font-family:'Comic Sans MS', cursive;/* Definir a fonte como Comic Sans */
+  color: #333; /* Cor do texto */
+  font-size: 18px; /* Tamanho do texto */
+  font-weight: bolder;
+  line-height: 1.5; /* Altura da linha para melhor legibilidade */
 }
+
 
