@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, get_user_model
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from anuncios.models import Anuncio, Categoria
 
 
@@ -12,29 +12,23 @@ def is_ajax(request):
 def home_page(request):
     categorias = Categoria.objects.all()
     ultimos_anuncios = Anuncio.objects.all()[:2]
-    context = {
-        'categorias': categorias,
-        'anuncios': ultimos_anuncios,
-        'title': 'Home Page, From para',
-        'content': 'Bem vindo a FromPara',
-    }
+    context = {}
     if request.user.is_authenticated:
         context['premium_content'] = 'Você é um usuário Premium'
-    return render(request, 'home_page.html', context)
-
+    return render(request, 'home_page.html', {'categorias': categorias, 'anuncios': ultimos_anuncios})
     
 def about_page(request):
     context = {
                     "title": "Página Sobre",
-                    "content": "Bem vindo a página sobre"
+                    "content": "Bem vindo a FromPara, onde divulgamos todas as belezas e historias do Para."
               }
     return render(request, "about/view.html", context)
 
 def contact_page(request):
     contact_form = ContactForm(request.POST or None)
     context = {
-                    "title": "Página de Contato",
-                    "content": "Bem vindo a página de contato",
+                    "title": "Página de Contatos Oficial.",
+                    "content": "Bem vindo a página de contato FromPara, aqui deixe seu contato, para dar pedir informaçoes, dar sugestões ou se busca parcerias.",
                     "form": contact_form	
               }
     if contact_form.is_valid():
@@ -54,7 +48,7 @@ def categoria(request, categoria_id):
 
     anuncios = Anuncio.objects.filter(categoria=categoria)
 
-    return render(request, 'home.html', {'categorias': categorias,
+    return render(request, 'postagens.html', {'categorias': categorias,
                                          'anuncios': anuncios,
                                          'categoria': categoria})
 

@@ -1,3 +1,27 @@
+.menu-box {
+  border: 10px solid #4CAF50; /* Substitua #4CAF50 pela cor verde desejada */
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  float: left;
+  margin-right: 10px;
+  background-color: #f0f0f0;
+}
+
+.menu-box a {
+  display: block;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu-box a:hover {
+  background-color: #ddd;
+}
+
 body {
-    color: #ccc;
+  background-color: white;
 }
