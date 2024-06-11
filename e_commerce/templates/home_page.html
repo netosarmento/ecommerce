@@ -49,27 +49,25 @@
             {% if categoria %}
                 <h1 class="ui header">{{ categoria }}</h1>
             {% endif %}
-            <div class="ui three column stackable grid">
+            <div class="ui three column stackable grid centered-text">
 				{% for anuncio in anuncios %}
 				  <div class="column">
-					<div class="ui fluid card">
-					  <div class="image">
-						<div class="image-container">
-						  <img src="{{ anuncio.imagem.url }}" alt="Imagem do Anúncio">
-						</div>
+					<div class="image">
+					  <div class="image-container">
+						<img src="{{ anuncio.imagem.url }}" alt="Imagem do Anúncio">
 					  </div>
-					  <div class="content">
-						<a href="{% url 'anuncio' anuncio.id %}" class="header">{{ anuncio }}</a>
-					  </div>
-					  <div class="extra content">
-						{{ anuncio.descricao }}
-					  </div>
+					</div>
+					<div class="content">
+					  <a href="{% url 'anuncio' anuncio.id %}" class="header">{{ anuncio }}</a>
+					</div>
+					<div class="extra content">
+					  {{ anuncio.descricao }}
 					</div>
 				  </div>
 				{% empty %}
 				  <p>Nenhum anúncio encontrado!</p>
 				{% endfor %}
-			  </div>										  
+			  </div>																					
             {% if request.user.is_authenticated %}
                 <div class="centered-text">
                     <h1>Premium</h1>

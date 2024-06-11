@@ -22,34 +22,46 @@
   background-color: #ddd;
 }
 
-body {
-  background-color: white;
-}
-
+/* Estilos adicionais para o contêiner da imagem */
 .image-container {
-  border: 2px solid black;
+  border: 2px solid #C0C0C0; /* Borda com cor prata */
   border-radius: 15px; /* Bordas mais suaves */
-  width: auto;
-  height: auto;
+  width: 50%; /* Ocupar 100% da largura disponível */
+  height: 400px; /* Altura fixa */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para um efeito de profundidade */
-  background-color: #f0f0f0; /* Cor de fundo para melhor contraste */
+  background-color: #ffffff; /* Cor de fundo branca */
 }
 
+/* Estilos adicionais para a imagem */
 .image-container img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 150%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem cubra todo o contêiner, podendo cortar a imagem */
   border-radius: 15px;
-  display: block;
+}
+
+/* Estilos adicionais para o contêiner do anúncio */
+.ui.fluid.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para um efeito de profundidade */
+  border-radius: 15px; /* Bordas mais suaves */
+  border: 2px solid #C0C0C0; /* Borda com cor prata */
+  overflow: hidden;
+  text-align: center; /* Centralizar o texto */
+  margin: 10px; /* Adicionar margem ao redor da caixa */
+}
+
+/* Estilos adicionais para o conteúdo do anúncio */
+.ui.fluid.card .content, .ui.fluid.card .extra.content {
+  padding: 15px; /* Espaçamento interno */
 }
 
 .centered-text {
   text-align: center;
   margin-top: 20px; /* Ajustar a margem conforme necessário */
 }
+
