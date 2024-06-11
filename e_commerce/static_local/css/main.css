@@ -1,12 +1,12 @@
 .menu-box {
-  border: 10px solid #4CAF50; /* Substitua #4CAF50 pela cor verde desejada */
+  border: 10px solid #C0C0C0; /* Silver color */
   border-radius: 10px;
   padding: 10px;
   text-align: center;
   width: 200px;
   float: left;
   margin-right: 10px;
-  background-color: #f0f0f0;
+  background: linear-gradient(to bottom, #ffffff 0%,#C0C0C0 100%); /* Gradient from white to silver */
 }
 
 .menu-box a {
@@ -24,4 +24,32 @@
 
 body {
   background-color: white;
+}
+
+.image-container {
+  border: 2px solid black;
+  border-radius: 15px; /* Bordas mais suaves */
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para um efeito de profundidade */
+  background-color: #f0f0f0; /* Cor de fundo para melhor contraste */
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+}
+
+.centered-text {
+  text-align: center;
+  margin-top: 20px; /* Ajustar a margem conforme necessário */
 }
