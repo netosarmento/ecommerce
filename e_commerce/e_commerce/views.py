@@ -61,3 +61,11 @@ def anuncio(request, anuncio_id):
 
     return render(request, 'anuncio.html', {'categorias': categorias,
                                          'anuncio': anuncio, 'anuncios': ultimos_anuncios})
+    
+def ceo(request):
+    
+    return render(request, 'Ceo.html')
+
+def faq(request):
+    
+    return render(request, 'faq.html')

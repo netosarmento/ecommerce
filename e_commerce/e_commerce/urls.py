@@ -10,7 +10,9 @@ from accounts.views import LoginView, RegisterView, LogoutView, guest_register_v
 from addresses.views import checkout_address_create_view, checkout_address_reuse_view
 from .views import (home_page,  
                     about_page, 
-                    contact_page
+                    contact_page,
+                    ceo,
+                    faq
 )
 
 urlpatterns = [
@@ -30,6 +32,8 @@ urlpatterns = [
     path('products/', include("products.urls", namespace="products")),
     path('', include('anuncios.urls')),
     path('admin/', admin.site.urls),
+    path('ceo', ceo, name='ceo'),
+    path('faq', faq, name='faq')
 ]
 
 if settings.DEBUG:

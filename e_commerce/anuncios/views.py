@@ -11,7 +11,7 @@ def categoria(request, categoria_id): # Adicione o parâmetro categoria_id
     categoria = get_object_or_404(Categoria, id=categoria_id)
     categorias = Categoria.objects.all()
     anuncios = Anuncio.objects.filter(categoria=categoria)
-    return render(request, 'anuncio.html', {'categorias': categorias, 'anuncios': anuncios, 'categoria': categoria})
+    return render(request, 'categoria.html', {'categorias': categorias, 'anuncios': anuncios, 'categoria': categoria})
 
 def anuncio(request, anuncio_id):  # Adicione o parâmetro anuncio_id
     anuncio_obj = get_object_or_404(Anuncio, id=anuncio_id)  # Use anuncio_id para recuperar o anúncio

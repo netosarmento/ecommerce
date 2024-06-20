@@ -1,32 +1,62 @@
+/* Centralizar conteúdo da coluna */
+.centered-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilos adicionais para a imagem */
+.image-container img {
+  width: 100%; /* Ajuste a largura conforme necessário */
+  height: auto;
+  object-fit: cover; /* Garante que a imagem cubra todo o contêiner, podendo cortar a imagem */
+  border-radius: 15px;
+}
+
+/* Ajuste para centralizar a grade */
+.ui.three.column.grid {
+  justify-content: center;
+}
+
+/* Centralizar o conteúdo da div de anúncios */
+.centered-text {
+  justify-content: center;
+  text-align: center;
+}
+
 .menu-box {
-  border: 10px solid #C0C0C0; /* Silver color */
+  border: 10px solid #d7d7d8; /* Silver color */
   border-radius: 10px;
   padding: 10px;
   text-align: center;
-  width: 200px;
-  float: left;
-  margin-right: 10px;
-  background: linear-gradient(to bottom, #ffffff 0%,#C0C0C0 100%); /* Gradient from white to silver */
+  width: 200px; /* Garantir que a largura seja adequada */
+  background: linear-gradient(to bottom, #b3b6bd 0%, #dad7d7 100%); /* Gradient from white to silver */
+  left: 0; /* Posicionar no lado esquerdo */
+  box-sizing: border-box; /* Garantir que o padding e a border sejam incluídos nas dimensões */
 }
 
 .menu-box a {
   display: block;
   margin-bottom: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(212, 203, 203);
   padding-bottom: 5px;
-  color: #333;
+  color: #000; /* Set text color to black */
   text-decoration: none;
+  font-weight: 600; /* Set font weight to semibold */
 }
 
 .menu-box a:hover {
   background-color: #ddd;
+  color: #000; /* Ensure text remains visible on hover */
 }
 
 /* Estilos adicionais para o contêiner da imagem */
 .image-container {
   border: 2px solid #C0C0C0; /* Borda com cor prata */
   border-radius: 15px; /* Bordas mais suaves */
-  width: 50%; /* Ocupar 100% da largura disponível */
+  width: 100%; /* Ocupar 100% da largura disponível */
+  width: 400px; /* Largura fixa */
   height: 400px; /* Altura fixa */
   display: flex;
   justify-content: center;
@@ -47,7 +77,7 @@
 
 /* Estilos adicionais para o contêiner do anúncio */
 .ui.fluid.card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para um efeito de profundidade */
+  box-shadow: 0 4px 8px rgba(202, 177, 177, 0.1); /* Sombra suave para um efeito de profundidade */
   border-radius: 15px; /* Bordas mais suaves */
   border: 2px solid #C0C0C0; /* Borda com cor prata */
   overflow: hidden;
@@ -68,16 +98,3 @@
   line-height: 1.5; /* Altura da linha para melhor legibilidade */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar o conteúdo */
 }
-
-
-.centered-text {
-  text-align: center;
-  margin-top: 20px; /* Ajustar a margem conforme necessário */
-  font-family:'Comic Sans MS', cursive;/* Definir a fonte como Comic Sans */
-  color: #333; /* Cor do texto */
-  font-size: 18px; /* Tamanho do texto */
-  font-weight: bolder;
-  line-height: 1.5; /* Altura da linha para melhor legibilidade */
-}
-
-
