@@ -1,61 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
-<title>Anuncio</title>
-
-{% block base_head %}
-    <link rel='stylesheet' href='{% static "css/main.css" %}'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-{% endblock %}
-
-{% block base_body %}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.carousel').slick({
-                dots: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                adaptiveHeight: true
-            });
-        });
-    </script>
-{% endblock %}
 
 {% block conteudo %}
-<h1 class="ui header">{{ anuncio.titulo }}
-    <div class="sub header">Anunciado em: {{ anuncio.criado_em }}</div>
-</h1>
 
-<div class="ui grid">
-    <div class="sixteen wide column">
-        <div class="ui image">
-            <div class="carousel">
-                {% for midia in anuncio.midias.all %}
-                    {% if midia.tipo == "imagem" %}
-                        <div><img src="{{ midia.url }}" alt="Imagem do Anúncio"></div>
-                    {% elif midia.tipo == "video" %}
-                        <div>
-                            <video controls>
-                                <source src="{{ midia.url }}" type="video/mp4">
-                                Seu navegador não suporta o elemento de vídeo.
-                            </video>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+<div class="ui three column stackable grid">
+    {% for anuncio in anuncios %}
+    <div class="column">
+        <div class="ui fluid card">
+            <div class="image">
+                <img src="{% static 'anuncios/img/image.png' %}">
+            </div>
+            <div class="content">
+                <a href="{% url 'anuncio' anuncio.id %}" class="header">{{ anuncio }}</a>
+            </div>
+            <div class="extra content">
+                R$ {{ anuncio.preco }}
             </div>
         </div>
     </div>
-
-    <div class="sixteen wide column">
-        <h2 class="ui header">Descrição</h2>
-        {% if anuncio.descricao %}
-        <p>{{ anuncio.descricao }}</p>
-        {% else %}
-        <p>Este anúncio não possui descrição.</p>
-        {% endif %}
-    </div>
+    {% empty %}
+        <p>Nenhum anúncio encontrado!</p>
+    {% endfor %}
 </div>
+
 {% endblock %}
