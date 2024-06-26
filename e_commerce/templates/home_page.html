@@ -30,7 +30,7 @@
 		<h1 class="fw-bolder">Venha Conhecer FromPara</h1>
 		<p class="lead">Um Site para os interessados no estado do Para, sua cultura e pontos turisticos.</p>
 		
-		<img class="bd-placeholder-img" src="{% static 'img/frompara.png' %}" width="100" height="100" />
+		<img class="bd-placeholder-img" src="{% static 'img/logo-frompara.jpg' %}" width="100" height="100" />
 	</div>
 </header>
 <body>
@@ -52,27 +52,38 @@
               {% endif %}
 
               <div class="ui three column stackable grid centered-text">
-                  {% for anuncio in anuncios %}
-                  <div class="column centered-column">
-                      <div class="ui fluid card">
-                          <div class="image-container">
-                              <img src="{{ anuncio.imagem.url }}" alt="Imagem do Anúncio">
-                          </div>
-                          <div class="content">
-                              <a href="{% url 'anuncio' anuncio.id %}" class="header">{{ anuncio }}</a>
-                          </div>
-                          <div class="extra content">
-                              {{ anuncio.descricao }}
-                          </div>
-                      </div>
-                  </div>
-                  {% empty %}
-                  <p>Nenhum anúncio encontrado!</p>
-                  {% endfor %}
-              </div>
+                    {% for anuncio in anuncios %}
+                    <div class="column centered-column">
+                        <div class="ui fluid card">
+                            <div class="image-container">
+                                {% with midia=anuncio.midias.first %}
+                                    {% if midia %}
+                                        {% if midia.tipo == "imagem" %}
+                                            <img src="{{ midia.url }}" alt="Imagem do Anúncio">
+                                        {% elif midia.tipo == "video" %}
+                                            <video controls>
+                                                <source src="{{ midia.url }}" type="video/mp4">
+                                                Seu navegador não suporta o elemento de vídeo.
+                                            </video>
+                                        {% endif %}
+                                    {% else %}
+                                        <p>Nenhuma mídia disponível.</p>
+                                    {% endif %}
+                                {% endwith %}
+                            </div>
+                            <div class="content">
+                                <a href="{% url 'anuncio' anuncio.id %}" class="header">{{ anuncio.titulo }}</a>
+                            </div>
+                            <div class="extra content">
+                                {{ anuncio.descricao }}
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>Nenhum anúncio encontrado!</p>
+                    {% endfor %}
+                </div>
           
-
-
 			  																					
             {% if request.user.is_authenticated %}
                 <div class="centered-text">
