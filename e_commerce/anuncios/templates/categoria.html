@@ -28,24 +28,26 @@
               {% endif %}
 
               <div class="ui three column stackable grid centered-text">
-                  {% for anuncio in anuncios %}
-                  <div class="column centered-column">
-                      <div class="ui fluid card">
-                          <div class="image-container">
-                              <img src="{{ anuncio.imagem.url }}" alt="Imagem do Anúncio">
-                          </div>
-                          <div class="content">
-                              <a href="{% url 'anuncio' anuncio.id %}" class="header">{{ anuncio }}</a>
-                          </div>
-                          <div class="extra content">
-                              {{ anuncio.descricao }}
-                          </div>
-                      </div>
-                  </div>
-                  {% empty %}
-                  <p>Nenhum anúncio encontrado!</p>
-                  {% endfor %}
-              </div>
+                {% elif midia.tipo == "video" %}
+                <div>
+                    <video controls>
+                        <source src="{{ midia.url }}" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+</div>
 
-            </body>    
-    {% endblock %}
+<div class="sixteen wide column">
+<h2 class="ui header">Titulo:</h2>
+{% if anuncio.titulo %}
+<p>{{ anuncio.titulo }}</p>
+{% else %}
+<p>Este post não possui Titulo.</p>
+{% endif %}
+</div>
+</div>
+{% endblock %}
